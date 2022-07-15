@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Currencies</title>
+</head>
+<body>
+<div>
+    <div th:each="currency: ${curList}">
+        <label th:text="${currency.getSymbol()}"></label><br>
+        <label th:text="'id-'+${currency.getCid()}+', Cost($):'+${currency.getPrice()}"></label>
+    </div>
+</div>
+<div>
+    <form action="/" method="get">
+        <label>Show current currency</label>
+        <input type="text" name="symbol">
+        <input type="submit">
+    </form>
+    <form action="/" method="get">
+        <label>Show all currencies</label>
+        <input type="submit">
+    </form>
+</div>
+<div>
+    <form action="/reg" method="post">
+        <label>Username</label>
+        <input type="text" name="username"><br>
+        <label>Symbol</label>
+        <input type="text" name="code"><br>
+        <input type="submit">
+    </form>
+</div>
+</body>
+</html>
